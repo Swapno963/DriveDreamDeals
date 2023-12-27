@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container pt-5 mt-5">
+        <a class='text-center btn btn-primary btn-sm' href="{% url 'edit_profile'%}">Edit Profile</a>
+        <div class="d-flex flex-wrap justify-content-center px-5 m-5">
+            {% for dt in data %}
+                <div class="col-md-4 p-3">
+                    <div class="card">
+                        <div class="card-body">
+                            {% comment %} <img src="{{dt.image.url}}" alt="Image is not found." class="card-img-top"> {% endcomment %}
+                            {% comment %} <h5 class='card-title'>{{dt.}}</h5> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

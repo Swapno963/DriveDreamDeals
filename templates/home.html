@@ -2,4 +2,29 @@
 
 {% block content %}
     <h2>This is home page</h2>
+    <div class="d-flex justify-content-center container">
+        {% for ct in category %}
+            <div class="col m-3">
+                <div class="card">
+                    <h5 class="card-header p-4 text-center">{{ct.name}}</h5>
+                  </div>
+            </div>
+        
+    {% endfor %}
+    </div>
+    <div class="d-flex flex-wrap px-5 m-5">
+        {% for dt in data %}
+            <div class="col-md-4 p-3">
+                <div class="card">
+                    <div class="card-body">
+                        <img style='height:300px' src="{{dt.image.url}}" alt="" class="card-img-top pt-4">
+                        <h4 class='card-title'>{{dt.name}}</h4>
+                        <h4>Price : {{dt.price}}</h4>
+                        <h4>Price : {{dt.quantity}}</h4>
+                        <p class="card-text">{{dt.detail | truncatewords:20}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

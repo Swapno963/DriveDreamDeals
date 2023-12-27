@@ -126,14 +126,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
- 
-    BASE_DIR / 'static'
+    BASE_DIR / 'static',
 ]
 
-#base url to serve media files
-MEDIA_URL= '/media/'
+# Base url to serve media files
+MEDIA_URL = '/media/'
 
-# path where meia is stroed
+# Path where media is stored'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type

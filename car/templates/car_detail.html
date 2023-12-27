@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+{% comment %} showing car {% endcomment %}
     <div class="p-3 mt-5 container">
         <div class="col">
             <div class="card-body">
@@ -13,4 +14,39 @@
              </div>
         </div>
     </div>
+
+    {% comment %} showing comment {% endcomment %}
+    <div class="mt-5  container">
+        <hr>
+        <h4>
+            Total Comments : {{comments | length}}
+        </h4>
+        <div class="card m-5">
+            <div class="card-body p-4 ">
+                {% for cm in  comments %}
+                    <div class="card p-3 m-2">
+                        <p><b>{{cm.name}}</b><small>, commented at :  {{cm.created_on}}</small></p>
+                        <p>{{cm.body}}</p>
+
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    {% comment %} adding comment {% endcomment %}
+    <div class="container">
+        <div class="card m-5">
+            <div class="card-body">
+                <h2 class='py-3'>Add Your Comment : </h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{comment_form | crispy}}
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+    </div>
+
 {% endblock content %}

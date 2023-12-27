@@ -10,9 +10,9 @@ class DetailCarView(DetailView):
     def post(self, request, *args, **kwargs):
         comment_form = forms.CommentForm(self.request.POST)
         car = self.get_object()
-        if comment_form.i_valid():
+        if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
-            new_comment.post = car
+            new_comment.car = car
             new_comment.save()
         return self.get(request, *args, **kwargs)
     
@@ -21,11 +21,11 @@ class DetailCarView(DetailView):
         context = super().get_context_data(**kwargs)
         car = self.object
         comments = car.comments.all()
-        print(car)
+        # print(car)
         comment_form = forms.CommentForm()
 
         context['comments'] = comments
-        context['cmment_form'] = comment_form
+        context['comment_form'] = comment_form
 
         return context
         

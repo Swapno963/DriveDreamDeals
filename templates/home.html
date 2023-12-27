@@ -18,7 +18,11 @@
                 <div class="card">
                     <div class="card-body">
                         <img style='height:300px' src="{{dt.image.url}}" alt="" class="card-img-top pt-4">
-                        <h4 class='card-title'>{{dt.name}}</h4>
+                        <h4 class='card-title'>
+                            <a href="{% url 'detail_car' dt.id %}">
+                                {{dt.name}}
+                            </a>
+                        </h4>
                         <h4>Price : {{dt.price}}</h4>
                         <h4>Price : {{dt.quantity}}</h4>
                         <p class="card-text">{{dt.detail | truncatewords:20}}</p>

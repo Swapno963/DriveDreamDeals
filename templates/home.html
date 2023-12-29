@@ -1,8 +1,97 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
+
+<style>
+    .slider {
+    background-color: #FAE6E5;
+}
+
+.price {
+    color: #FF136F;
+}
+
+.btn-slider {
+    background: #FF136F;
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+}
+</style>
+
     <h2>This is home page</h2>
-    <div class="d-flex justify-content-center container">
+    {% comment %} Slider starts from hear {% endcomment %}
+        <!-- slider section start -->
+        <section>
+            <div class="container slider mt-5 rounded-4">
+                <!-- slider start -->
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row align-items-center p-5">
+                                <div class="col-md-7">
+                                    <h1 class='py-3'>Momentum Beyond Wheels (MBW)</h1>
+                                    <p>In a league of its own, MBW cars redefine automotive luxury and performance. Combining cutting-edge technology with timeless design, MBW vehicles offer an unparalleled driving experience. With a commitment to innovation, MBW is poised to lead the automotive industry into a new era of excellence.</p>
+                                    <h1 class="price fw-bold">$120000</h1>
+                                    <button class="btn btn-warning text-white fw-bold my-2">Buy Now >></button>
+                                </div>
+                                <div class="col-md-5">
+                                    <img  style='height:350px; '  src="{% static 'car_1.jpeg'%}" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="carousel-item ">
+                            <div class="row align-items-center p-5">
+                                <div class="col-md-7">
+                                    <h1 class='py-3'>Corvette: A Symphony of Power and Precision</h1>
+                                    <p>The Corvette, an iconic American sports car, epitomizes automotive brilliance. Its sleek design, raw power, and precision engineering make it a symbol of performance and style. With a heritage spanning decades, the Corvette continues to captivate enthusiasts worldwide, embodying the spirit of speed and sophistication.</p>
+                                    <h1 class="price fw-bold">$1200</h1>
+                                    <button class="btn btn-slider">Buy Now >></button>
+                                </div>
+                                <div class="col-md-5">
+                                    <img  style='height:350px'   src="{% static 'car_2.jpeg'%}" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div class="row align-items-center p-5">
+                                <div class="col-md-7">
+                                    <h1 class='py-3'>Bugatti: Engineering Elegance, Accelerating Dreams</h1>
+                                    <p>The Bugatti, a masterpiece of automotive artistry, epitomizes the pinnacle of luxury and speed. With its distinctive design and unparalleled performance, each Bugatti model is a testament to precision engineering and attention to detail. Owning a Bugatti is not just a drive; it's an extraordinary journey of opulence and speed.Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, aliquid?</p>
+                                    <h1 class="price fw-bold">$1200</h1>
+                                    <button class="btn btn-slider">Buy Now >></button>
+                                </div>
+                                <div class="col-md-5">
+                                    <img style='height:350px' src="{% static 'car_3.jpg'%}" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- slider control section -->
+    
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+    
+                </div>
+    
+                <!-- slider end -->
+            </div>
+        </section>
+
+    {% comment %} Car starts from hear {% endcomment %}
+    <div class="d-flex justify-content-center container my-5 py-5">
         {% for ct in category %}
             <div class="col m-3">
                 <div class="card">

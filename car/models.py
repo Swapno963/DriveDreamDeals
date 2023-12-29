@@ -21,3 +21,8 @@ class CommentModel(models.Model):
     email = models.EmailField()
     body = models.TextField()
     created_on = models.DateField(auto_now_add = True)
+
+
+
+def buy_now(request,car_model_id):
+    car_model = models.C

@@ -6,11 +6,19 @@
     <div class="p-3 mt-5 container">
         <div class="col">
             <div class="card-body">
-                <img style='height:600px; width:100%; ' src="{{post.image.url}}" alt="" class="card-img-top pb-4">
+                <img style='height:600px; width:100%; ' src="{{car.image.url}}" alt="" class="card-img-top pb-4">
                 <h3 class="card-title     ">{{car}}</h3> 
-                <h3 class="card-title     ">{{car.price}}</h3> 
-                <h3 class="card-title     ">{{car.quantity}}</h3> 
-                <h3 class="card-title     ">{{car.detail}}</h3> 
+                <h4 class="card-title     ">Price : {{car.price}} $</h4> 
+                <h4 class="card-title     ">We have : {{car.quantity}} Pieces</h4> 
+                <p class="card-title     ">{{car.detail}}</p> 
+                {%if request.user.is_authenticated%}
+                    <form method="post" action="{% url 'detail_car' car.id %}">
+                        {% csrf_token %}
+                        <button class='btn btn-warning' type="submit" name="buy_car">Buy Now</button>
+                    </form>
+                {% endif %}
+                
+                {% comment %} <a href="{% url 'detail', car.id%}" class='btn btn-warning my-2'>Buy Now</a> {% endcomment %}
              </div>
         </div>
     </div>

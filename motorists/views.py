@@ -17,7 +17,7 @@ def register(request):
         if register_form.is_valid():
             register_form.save()
             messages.success(request, 'Register Successfull!')
-            # return redirect()
+            return redirect('user_login')
 
     else:
         register_form = forms.RegistrationForm()
@@ -26,7 +26,6 @@ def register(request):
 
 class UserLoginView(LoginView):
     template_name = 'register.html'
-    success_url = reverse_lazy('/motorists/profile')
 
     def form_valid(self,form):
         messages.success(self.request, 'Login Successfully!')
@@ -41,11 +40,13 @@ class UserLoginView(LoginView):
         context['type'] = 'Login'
         return context
     
+    def get_success_url(self): 
+        return reverse_lazy('show_profile')
 
 def show_profile(request):
     # data = CarModel.objects.filter(brand = request.user)
-    data = CarModel.objects.all()
-    return render(request, 'show_profile.html',{'data':data})
+    # data = CarModel.objects.all()
+    return render(request, 'show_profile.html',{'data':request.user})
 
 def edit_profile(request):
     if request.method == 'POST':
